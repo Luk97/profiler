@@ -1,6 +1,6 @@
 # profiler
 
-This C profiler is used to messure time during runtime. A quick example is provided [here](##example).  
+This C profiler is used to messure time during runtime. A quick example is provided [here](#example).  
 This profilers mesuares nanoseconds accurate. Internally the profiler is stackbased so that no comparision have to be made to determine the end of one profiler.
 
 ## Features
@@ -37,6 +37,7 @@ int main() {
 
     // Start the clock of a profiler. The first arguments is used to reference this profiler.
     // The second one is an optional threshold. If the timer exceeds the threshold, the log_level is of type PROFILER_LOG_ALERT instead of PROFILER_LOG_INFO.
+    // If the threshold is 0, it gets ignored.
     begin_profiler("Adder", 0);
 
     // Sample code, that is getting measured.
