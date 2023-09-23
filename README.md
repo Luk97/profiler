@@ -1,12 +1,11 @@
 # profiler
 
-This C profiler is used to messure time during runtime. A quick example is provided [here](## Example).  
+This C profiler is used to messure time during runtime. A quick example is provided [here](##Example).  
 This profilers mesuares nanoseconds accurate. Internally the profiler is stackbased so that no comparision have to be made to determine the end of one profiler.
 
 ## Todo
 
 - Comment the code
-- Add dynamic capacity
 - Add file as output
 - Add threshold to create time warnings
 
@@ -44,8 +43,9 @@ int main() {
 
     return 0;
 }
+```
 
 Console output:
 ```
 [PROFILER INFO] Adder took: 2s 127ms 52ns
-
+```
