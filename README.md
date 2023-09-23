@@ -3,31 +3,41 @@
 This C profiler is used to messure time during runtime. A quick example is provided [here](##Example).  
 This profilers mesuares nanoseconds accurate. Internally the profiler is stackbased so that no comparision have to be made to determine the end of one profiler.
 
-## Todo
+## Features
 
-- Comment the code
-- Add file as output
-- Add threshold to create time warnings
+- Nanosecond accurate measuring
+- Optional thresholds for each profiler
+- Filterable levels of outputs (errors, alerts and infos)
 
-## Example
+## Todos
+
+- File as output instead of console
+- C++ compatible
+- Windows compatible
+
+## Dependencies
+
+None.
+
+## Quick example
+
+### C file
 
 ```c
 // Define PROFILER_IMPLEMENTATION if it is not defined anywhere else in your project.
-// Omit it in cases, where the implemation is already defined in the project to avoid linking errors.
 #define PROFILER_IMPLEMENTATION
 // Include the library.
 #include "profiler.h"
 
 int main() {
 
-    // This is the amount of profilers that can run at the same time.
-    int profiler_capacity = 8;
-
     // Init the internal Profiler structure. Malloc() gets called, so you need to call clear_profilers() to avoid memory leakage.
-    init_profilers(profiler_capacity);
+    // The log_level filters the log messages that get printed to the console.
+    profiler_init(PROFILER_LOG_EVERYTHING);
 
-    // Start the clock of a profiler. The internal structure is stackbased, so that the last created profiler will finish first.
-    begin_profiler("Adder");
+    // Start the clock of a profiler. The first arguments is used to reference this profiler.
+    // The second one is an optional threshold. If the timer exceeds the threshold, the log_level is of type PROFILER_LOG_ALERT instead of PROFILER_LOG_INFO.
+    begin_profiler("Adder", 0);
 
     // Sample code, that is getting measured.
     long result = 0;
@@ -45,7 +55,8 @@ int main() {
 }
 ```
 
-Console output:
+### Console output
+
 ```
 [PROFILER INFO] Adder took: 2s 127ms 52ns
 ```
