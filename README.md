@@ -1,6 +1,6 @@
 # profiler
 
-This C profiler is used to messure time during runtime. A quick example is provided [here](#example).  
+This C profiler is used to messure time during runtime. A quick example is provided [here](#quick-example).  
 This profilers mesuares nanoseconds accurate. Internally the profiler is stackbased so that no comparision have to be made to determine the end of one profiler.
 
 ## Features
@@ -61,3 +61,5 @@ int main() {
 ```
 [PROFILER INFO] Adder took: 2s 127ms 52ns
 ```
+
+[test](#quick-example)
