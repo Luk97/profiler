@@ -38,7 +38,7 @@ int main() {
     // Start the clock of a profiler. The first arguments is used to reference this profiler.
     // The second one is an optional threshold. If the timer exceeds the threshold, the log_level is of type PROFILER_LOG_ALERT instead of PROFILER_LOG_INFO.
     // If the threshold is 0, it gets ignored.
-    begin_profiler("Adder", 0);
+    profiler_begin("Adder", 0);
 
     // Sample code, that is getting measured.
     long result = 0;
@@ -47,10 +47,10 @@ int main() {
     }
 
     // End the last created profiler. The internal structure is stackbased, so that no comparisons have to be made for more optimal performance.
-    end_profiler();
+    profiler_end();
 
     // Call this function if all the profiling is finished to free the memory allocated by init_profilers().
-    clear_profilers();
+    profiler_clear();
 
     return 0;
 }
