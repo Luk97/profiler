@@ -61,5 +61,3 @@ int main() {
 ```
 [PROFILER INFO] Adder took: 2s 127ms 52ns
 ```
-
-[test](#quick-example)
